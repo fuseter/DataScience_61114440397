@@ -6,7 +6,7 @@ from joblib import dump
 
 data = fetch_20newsgroups()
 
-categories = ['talk.religion.misc', 'soc.religion.christian', 'sci.space', 'comp.graphics']
+categories = ['sci.electronics', 'rec.autos', 'sci.space', 'comp.graphics']
 train = fetch_20newsgroups(subset='train', categories=categories)
 test = fetch_20newsgroups(subset='test', categories=categories)
 model = make_pipeline(TfidfVectorizer(), MultinomialNB())
@@ -20,13 +20,9 @@ print(n)
 print((sum(corrects)))
 print((sum(corrects)*100/n))
 
-
-
-
 total = (n)
 correct = (sum(corrects))
 Percent = (sum(corrects)*100/n)
-
 
 
 dump(model, 'chatgroup.model')

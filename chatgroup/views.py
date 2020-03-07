@@ -3,7 +3,7 @@ from joblib import load
 from sklearn.datasets import fetch_20newsgroups
 
 data = fetch_20newsgroups()
-categories = ['talk.religion.misc', 'soc.religion.christian', 'sci.space', 'comp.graphics']
+categories = ['sci.electronics', 'rec.autos', 'sci.space', 'comp.graphics']
 train = fetch_20newsgroups(subset='train', categories=categories)
 
 # Create your views here.
@@ -12,6 +12,8 @@ def index(req):
     label = ""
     chat  = ""
     Percent = load('chatgroup\static\Percent.csv')
+    if label == "":
+        label = "-"
     if req.method == 'POST':
         print("POST IN")
         chat = str(req.POST['chat'])
